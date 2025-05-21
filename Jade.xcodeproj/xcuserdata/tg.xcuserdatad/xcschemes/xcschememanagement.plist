@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>FuckYou.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>JadeDesktop.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>10</integer>
+		</dict>
+		<key>MLXChat.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
+			<key>orderHint</key>
+			<integer>0</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>D3AF75A82DD9C564003BF6A6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3AF75B52DD9C567003BF6A6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3AF75BF2DD9C567003BF6A6</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3FD3FE52DDDE14E00AD5710</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3FD3FF22DDDE15000AD5710</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D3FD3FFC2DDDE15000AD5710</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
