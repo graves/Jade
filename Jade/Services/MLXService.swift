@@ -18,7 +18,10 @@ class MLXService {
     /// List of available models that can be used for generation.
     /// Includes both language models (LLM) and vision-language models (VLM).
     static let availableModels: [LMModel] = [
-        LMModel(name: "qwen3_josiefied:4b", configuration: LLMRegistry.qwen3_4b_josiefied_4bit, type: .llm),
+        LMModel(name: "jade_qwen3_4bit:4b", configuration: LLMRegistry.jade_qwen3_4b_mlx_4bit, type: .llm),
+        LMModel(name: "jade_qwen3_8bit:4b", configuration: LLMRegistry.jade_qwen3_4b_mlx_8bit, type: .llm),
+        LMModel(name: "qwen3:4b", configuration: LLMRegistry.qwen3_4b_4bit, type: .llm),
+        LMModel(name: "qwen3:8b", configuration: LLMRegistry.qwen3_8b_4bit, type: .llm),
     ]
 
     /// Cache to store loaded model containers to avoid reloading.

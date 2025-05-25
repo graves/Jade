@@ -10,6 +10,7 @@ import Foundation
 enum MessageSegment: Identifiable {
     case markdown(String)
     case code(String)
+    case latex(String)
 
     var id: UUID { UUID() }
 }
@@ -20,37 +21,42 @@ enum MessageSegment: Identifiable {
 /// - Returns: An array of `MessageSegment`s, separated by Markdown and code blocks.
 func parseMessageContent(_ content: String) -> [MessageSegment] {
     var segments: [MessageSegment] = []
-    let lines = content.components(separatedBy: "\n")
+    var buffer = ""
+    var isInLatexBlock = false
     var isInCodeBlock = false
-    var currentCode = ""
-    var currentMarkdown = ""
+
+    let lines = content.components(separatedBy: "\n")
 
     for line in lines {
         if line.starts(with: "```") {
             if isInCodeBlock {
-                // Close code block
-                segments.append(.code(currentCode.trimmingCharacters(in: .whitespacesAndNewlines)))
-                currentCode = ""
-            } else {
-                // Flush any pending markdown before code block
-                if !currentMarkdown.isEmpty {
-                    segments.append(.markdown(currentMarkdown.trimmingCharacters(in: .whitespacesAndNewlines)))
-                    currentMarkdown = ""
-                }
+                segments.append(.code(buffer.trimmingCharacters(in: .whitespacesAndNewlines)))
+                buffer = ""
+            } else if !buffer.isEmpty {
+                segments.append(.markdown(buffer.trimmingCharacters(in: .whitespacesAndNewlines)))
+                buffer = ""
             }
             isInCodeBlock.toggle()
-        } else {
-            if isInCodeBlock {
-                currentCode += line + "\n"
-            } else {
-                currentMarkdown += line + "\n"
+        } else if line.trimmingCharacters(in: .whitespacesAndNewlines) == "$$" {
+            if isInLatexBlock {
+                segments.append(.latex(buffer.trimmingCharacters(in: .whitespacesAndNewlines)))
+                buffer = ""
+            } else if !buffer.isEmpty {
+                segments.append(.markdown(buffer.trimmingCharacters(in: .whitespacesAndNewlines)))
+                buffer = ""
             }
+            isInLatexBlock.toggle()
+        } else {
+            buffer += line + "\n"
         }
     }
 
-    // Append whatever remains
-    if !currentMarkdown.isEmpty {
-        segments.append(.markdown(currentMarkdown.trimmingCharacters(in: .whitespacesAndNewlines)))
+    // Flush remaining
+    if !buffer.isEmpty {
+        let type: MessageSegment = isInCodeBlock ? .code(buffer) :
+                                isInLatexBlock ? .latex(buffer) :
+                                .markdown(buffer)
+        segments.append(type)
     }
 
     return segments

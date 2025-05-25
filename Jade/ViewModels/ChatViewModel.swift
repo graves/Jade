@@ -26,7 +26,7 @@ class ChatViewModel {
     var prompt: String = ""
 
     var messages: [Message] = [
-        .system("You are Qwen, created by Alibaba Cloud.")
+        .system("You are Jade, created by Awful Security.")
     ]
 
     /// Currently selected language model for generation

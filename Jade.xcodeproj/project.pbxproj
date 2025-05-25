@@ -39,6 +39,10 @@
 		D3AF76112DD9C9E7003BF6A6 /* MLXLMCommon in Frameworks */ = {isa = PBXBuildFile; productRef = D3AF76102DD9C9E7003BF6A6 /* MLXLMCommon */; };
 		D3AF76132DD9C9E7003BF6A6 /* MLXMNIST in Frameworks */ = {isa = PBXBuildFile; productRef = D3AF76122DD9C9E7003BF6A6 /* MLXMNIST */; };
 		D3AF76152DD9C9E7003BF6A6 /* MLXVLM in Frameworks */ = {isa = PBXBuildFile; productRef = D3AF76142DD9C9E7003BF6A6 /* MLXVLM */; };
+		D3BA44E12DE198FE00F94E2B /* LaTeXSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D3BA44E02DE198FE00F94E2B /* LaTeXSwiftUI */; };
+		D3BA44E32DE1999B00F94E2B /* LaTeXSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = D3BA44E22DE1999B00F94E2B /* LaTeXSwiftUI */; };
+		D3BA44E82DE1B5B500F94E2B /* MardownTheme.swift in Resources */ = {isa = PBXBuildFile; fileRef = D3BA44E72DE1B5B500F94E2B /* MardownTheme.swift */; };
+		D3BA44E92DE1B5B500F94E2B /* MardownTheme.swift in Resources */ = {isa = PBXBuildFile; fileRef = D3BA44E72DE1B5B500F94E2B /* MardownTheme.swift */; };
 		D3FD3F2E2DDDC15700AD5710 /* ScratchpadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3FD3F2D2DDDC15700AD5710 /* ScratchpadView.swift */; };
 		D3FD401F2DDDE1AC00AD5710 /* MLXEmbedders in Frameworks */ = {isa = PBXBuildFile; productRef = D3FD401E2DDDE1AC00AD5710 /* MLXEmbedders */; };
 		D3FD40212DDDE1AC00AD5710 /* MLXLLM in Frameworks */ = {isa = PBXBuildFile; productRef = D3FD40202DDDE1AC00AD5710 /* MLXLLM */; };
@@ -127,6 +131,7 @@
 		D3AF75EA2DD9C5EC003BF6A6 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		D3AF75EB2DD9C5EC003BF6A6 /* JadeChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JadeChat.swift; sourceTree = "<group>"; };
 		D3AF75EC2DD9C5EC003BF6A6 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D3BA44E72DE1B5B500F94E2B /* MardownTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MardownTheme.swift; sourceTree = "<group>"; };
 		D3FD3F2D2DDDC15700AD5710 /* ScratchpadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScratchpadView.swift; sourceTree = "<group>"; };
 		D3FD3FE62DDDE14E00AD5710 /* JadeDesktop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JadeDesktop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3FD3FF32DDDE15000AD5710 /* JadeDesktopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JadeDesktopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -164,6 +169,7 @@
 				D3470F102DDC2E7B0085275E /* HighlightSwift in Frameworks */,
 				D3AF760B2DD9C6FC003BF6A6 /* MLXVLM in Frameworks */,
 				D3AF76092DD9C6FC003BF6A6 /* MLXMNIST in Frameworks */,
+				D3BA44E12DE198FE00F94E2B /* LaTeXSwiftUI in Frameworks */,
 				D3AF760D2DD9C9E7003BF6A6 /* MLXEmbedders in Frameworks */,
 				D3AF76052DD9C6FC003BF6A6 /* MLXLLM in Frameworks */,
 				D3AF76072DD9C6FC003BF6A6 /* MLXLMCommon in Frameworks */,
@@ -196,6 +202,7 @@
 				D3FD40292DDDE1AC00AD5710 /* StableDiffusion in Frameworks */,
 				D3FD402D2DDDE1AC00AD5710 /* HighlightSwift in Frameworks */,
 				D3FD40252DDDE1AC00AD5710 /* MLXMNIST in Frameworks */,
+				D3BA44E32DE1999B00F94E2B /* LaTeXSwiftUI in Frameworks */,
 				D3FD40212DDDE1AC00AD5710 /* MLXLLM in Frameworks */,
 				D3FD40232DDDE1AC00AD5710 /* MLXLMCommon in Frameworks */,
 				D3FD401F2DDDE1AC00AD5710 /* MLXEmbedders in Frameworks */,
@@ -256,6 +263,7 @@
 		D3AF75D72DD9C5EC003BF6A6 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				D3BA44E72DE1B5B500F94E2B /* MardownTheme.swift */,
 				D3FD40492DDDFC7700AD5710 /* PromptTextEditor.swift */,
 				D3FD40462DDDFB6B00AD5710 /* AppExtensions.swift */,
 				D3470F112DDC3B290085275E /* MessageContentParserService.swift */,
@@ -366,6 +374,7 @@
 				D3AF76142DD9C9E7003BF6A6 /* MLXVLM */,
 				D3470F0C2DDC23460085275E /* MarkdownUI */,
 				D3470F0F2DDC2E7B0085275E /* HighlightSwift */,
+				D3BA44E02DE198FE00F94E2B /* LaTeXSwiftUI */,
 			);
 			productName = FuckYou;
 			productReference = D3AF75A92DD9C564003BF6A6 /* Jade.app */;
@@ -436,6 +445,7 @@
 				D3FD40282DDDE1AC00AD5710 /* StableDiffusion */,
 				D3FD402A2DDDE1AC00AD5710 /* MarkdownUI */,
 				D3FD402C2DDDE1AC00AD5710 /* HighlightSwift */,
+				D3BA44E22DE1999B00F94E2B /* LaTeXSwiftUI */,
 			);
 			productName = JadeDesktop;
 			productReference = D3FD3FE62DDDE14E00AD5710 /* JadeDesktop.app */;
@@ -534,6 +544,7 @@
 				D3AF76012DD9C6FC003BF6A6 /* XCLocalSwiftPackageReference "../../Projects/mlx-swift-examples" */,
 				D3470F0B2DDC23460085275E /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 				D3470F0E2DDC2E7B0085275E /* XCRemoteSwiftPackageReference "HighlightSwift" */,
+				D3BA44DF2DE198FE00F94E2B /* XCRemoteSwiftPackageReference "LaTeXSwiftUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = D3AF75AA2DD9C564003BF6A6 /* Products */;
@@ -557,6 +568,7 @@
 			files = (
 				D3AF75EE2DD9C5EC003BF6A6 /* Preview Assets.xcassets in Resources */,
 				D3AF75EF2DD9C5EC003BF6A6 /* Assets.xcassets in Resources */,
+				D3BA44E92DE1B5B500F94E2B /* MardownTheme.swift in Resources */,
 				D3AF75F02DD9C5EC003BF6A6 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -579,6 +591,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3BA44E82DE1B5B500F94E2B /* MardownTheme.swift in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -839,7 +852,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PUNL926RFT;
@@ -877,7 +889,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = PUNL926RFT;
@@ -1222,6 +1233,14 @@
 				minimumVersion = 1.0.9;
 			};
 		};
+		D3BA44DF2DE198FE00F94E2B /* XCRemoteSwiftPackageReference "LaTeXSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/colinc86/LaTeXSwiftUI";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1274,6 +1293,16 @@
 		D3AF76142DD9C9E7003BF6A6 /* MLXVLM */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MLXVLM;
+		};
+		D3BA44E02DE198FE00F94E2B /* LaTeXSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3BA44DF2DE198FE00F94E2B /* XCRemoteSwiftPackageReference "LaTeXSwiftUI" */;
+			productName = LaTeXSwiftUI;
+		};
+		D3BA44E22DE1999B00F94E2B /* LaTeXSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D3BA44DF2DE198FE00F94E2B /* XCRemoteSwiftPackageReference "LaTeXSwiftUI" */;
+			productName = LaTeXSwiftUI;
 		};
 		D3FD401E2DDDE1AC00AD5710 /* MLXEmbedders */ = {
 			isa = XCSwiftPackageProductDependency;

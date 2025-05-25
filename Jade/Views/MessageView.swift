@@ -9,17 +9,21 @@ import AVKit
 import SwiftUI
 import MarkdownUI
 import HighlightSwift
+import LaTeXSwiftUI
+
+#if os(iOS)
+import UIKit
+#elseif os(macOS)
+import AppKit
+#endif
 
 /// A view that displays a single message in the chat interface.
 /// Supports different message roles (user, assistant, system) and media attachments.
 struct MessageView: View {
-    /// The message to be displayed
     @ObservedObject var message: Message
     var viewModel: ChatViewModel
     @Binding var selectedTab: Int
 
-    /// Creates a message view
-    /// - Parameter message: The message model to display
     init(_ message: Message, viewModel: ChatViewModel, selectedTab: Binding<Int>) {
         self.message = message
         self.viewModel = viewModel
@@ -29,7 +33,6 @@ struct MessageView: View {
     var body: some View {
         switch message.role {
         case .user:
-            // User messages are right-aligned with blue background
             HStack {
                 Spacer()
                 VStack(alignment: .trailing, spacing: 8) {
@@ -56,19 +59,12 @@ struct MessageView: View {
                             VStack(alignment: .leading, spacing: 4) {
                                 let segments = parseMessageContent(message.content)
                                 ForEach(segments) { segment in
-                                    switch segment {
-                                    case .markdown(let text):
-                                        Text(text)
-                                            .padding(.bottom, 8)
-                                    case .code(let code):
-                                        CodeText(code)
-                                            .padding(.vertical, 12)
-                                    }
+                                    renderSegment(segment)
                                 }
                             }
                         } else {
-                            // While streaming, show content as Markdown only
                             Text(message.content)
+                                .font(.body)
                         }
                     }
                     .padding(.vertical, 8)
@@ -99,9 +95,8 @@ struct MessageView: View {
                 DragGesture(minimumDistance: 30)
                     .onEnded { value in
                         if value.translation.width < -50 {
-                            // Left swipe detected
                             viewModel.scratchpadText = message.content
-                            selectedTab = 1 // switch to scratchpad
+                            selectedTab = 1
                         }
                     }
             )
@@ -113,15 +108,7 @@ struct MessageView: View {
                         VStack(alignment: .leading, spacing: 4) {
                             let segments = parseMessageContent(message.content)
                             ForEach(segments) { segment in
-                                switch segment {
-                                case .markdown(let text):
-                                    Markdown(text)
-                                        .markdownTheme(.gitHub)
-                                        .padding(.bottom, 8)
-                                case .code(let code):
-                                    CodeText(code)
-                                        .padding(.vertical, 12)
-                                }
+                                renderSegment(segment)
                             }
                         }
                         .padding(12)
@@ -132,9 +119,9 @@ struct MessageView: View {
                         #endif
                         .cornerRadius(16)
                     } else {
-                        // While streaming, show content as Markdown only
                         Markdown(message.content)
-                            .markdownTheme(.gitHub)
+                            .markdownTheme(.basic)
+                            .font(.custom("Georgia", size: 16))
                             .padding(12)
                             #if os(macOS)
                             .background(Color(.windowBackgroundColor))
@@ -170,9 +157,8 @@ struct MessageView: View {
                 DragGesture(minimumDistance: 30)
                     .onEnded { value in
                         if value.translation.width < -50 {
-                            // Left swipe detected
                             viewModel.scratchpadText = message.content
-                            selectedTab = 1 // switch to scratchpad
+                            selectedTab = 1
                         }
                     }
             )
@@ -183,12 +169,43 @@ struct MessageView: View {
                     .font(.headline)
                     .foregroundColor(.secondary)
             } icon: {
-                Image("Brandmark") // Your custom asset name
+                Image("Brandmark")
                     .resizable()
-                    .frame(width: 20, height: 20) // Adjust size as needed
-                    .clipShape(Circle()) // Optional for round logos
+                    .frame(width: 20, height: 20)
+                    .clipShape(Circle())
             }
             .frame(maxWidth: .infinity, alignment: .center)
+        }
+    }
+
+    @ViewBuilder
+    private func renderSegment(_ segment: MessageSegment) -> some View {
+        switch segment {
+        case .markdown(let text):
+            Markdown(text)
+                .markdownTheme(.basic)
+                .font(.custom("Georgia", size: 16))
+                .padding(.bottom, 8)
+                #if os(macOS)
+                .background(Color(nsColor: .windowBackgroundColor))
+                #else
+                .background(Color(UIColor.secondarySystemBackground))
+                #endif
+
+        case .code(let code):
+            CodeText(code)
+                .padding(.vertical, 12)
+
+        case .latex(let tex):
+            LaTeX(#"$$\#(tex)$$"#)
+                #if os(iOS)
+                .font(UIFont(name: "Times New Roman", size: 18) ?? .systemFont(ofSize: 18))
+                #elseif os(macOS)
+                .font(NSFont.systemFont(ofSize: 20))
+                #endif
+                .padding()
+                .background(Color.gray.opacity(0.1))
+                .cornerRadius(8)
         }
     }
 }
